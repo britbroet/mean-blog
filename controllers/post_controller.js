@@ -24,9 +24,16 @@ router.route('/')
 });
 
 router.route('/:id')
+.get(function(req, res) {
+  Post.findById(req.params.id, function(err, post) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.send(post);
+  });
+})
 .delete(function(req, res) {
   var id = req.params.id;
-  console.log("deleting post:", id);
   Post.findByIdAndRemove(id, function(err, post) {
     if (err) {
       return res.status(500).send(err);

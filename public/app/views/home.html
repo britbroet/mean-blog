@@ -7,7 +7,8 @@
 <ul>
   <li ng-repeat="post in posts">
     <button ng-click="deletePost(post)">delete</button>
-    {{post.title}}
-    {{post._id}}
+    <a ng-href="/post/{{post._id}}">
+      {{post.title}}
+    </a>
   </li>
 </ul>

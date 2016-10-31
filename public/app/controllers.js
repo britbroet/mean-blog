@@ -31,4 +31,16 @@ angular.module('MeanBlogApp')
     });
   }
 
+}])
+.controller('PostCtrl', ['$scope', '$stateParams', 'PostService',
+    function($scope, $stateParams, PostService) {
+  $scope.post = {
+    title: "",
+    content: ""
+  };
+
+  var id = $stateParams.id;
+  PostService.getPost(id, function(res) {
+    $scope.post = res.data;
+  });
 }]);

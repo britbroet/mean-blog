@@ -7,6 +7,11 @@ angular.module('MeanBlogApp', ['ui.router'])
     url: '/',
     templateUrl: 'app/views/home.html',
     controller: 'HomeCtrl'
+  })
+  .state('post', {
+    url: '/post/:id',
+    templateUrl: 'app/views/post.html',
+    controller: 'PostCtrl'
   });
 
   $locationProvider.html5Mode(true);
