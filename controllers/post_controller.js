@@ -32,6 +32,14 @@ router.route('/:id')
     res.send(post);
   });
 })
+.put(function(req, res) {
+  Post.findByIdAndUpdate(req.params.id, req.body, function(err, post) {
+    if (err) {
+      return res.status(500).send(err);
+    }
+    res.send(post);
+  });
+})
 .delete(function(req, res) {
   var id = req.params.id;
   Post.findByIdAndRemove(id, function(err, post) {

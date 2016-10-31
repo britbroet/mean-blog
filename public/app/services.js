@@ -19,6 +19,14 @@ angular.module('MeanBlogApp')
     });
   }
 
+  this.updatePost = function(post, callback) {
+    $http.put('/api/posts/' + post._id, post).then(function success(res) {
+      callback(res);
+    }, function error(res) {
+      console.log(res);
+    });
+  }
+
   this.addPost = function(postData, callback) {
     $http.post('/api/posts', postData).then(function success(res) {
       callback(res);

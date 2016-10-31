@@ -32,8 +32,8 @@ angular.module('MeanBlogApp')
   }
 
 }])
-.controller('PostCtrl', ['$scope', '$stateParams', 'PostService',
-    function($scope, $stateParams, PostService) {
+.controller('PostCtrl', ['$scope', '$stateParams', '$state', 'PostService',
+    function($scope, $stateParams, $state, PostService) {
   $scope.post = {
     title: "",
     content: ""
@@ -43,4 +43,10 @@ angular.module('MeanBlogApp')
   PostService.getPost(id, function(res) {
     $scope.post = res.data;
   });
+
+  $scope.updatePost = function() {
+    PostService.updatePost($scope.post, function(res) {
+      $state.go('post', {id: $scope.post._id});
+    });
+  }
 }]);

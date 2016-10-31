@@ -12,6 +12,11 @@ angular.module('MeanBlogApp', ['ui.router'])
     url: '/post/:id',
     templateUrl: 'app/views/post.html',
     controller: 'PostCtrl'
+  })
+  .state('edit-post', {
+    url: '/post/:id/edit',
+    templateUrl: 'app/views/post_edit.html',
+    controller: 'PostCtrl'
   });
 
   $locationProvider.html5Mode(true);
