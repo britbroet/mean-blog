@@ -1,7 +1,11 @@
 <h1>Home</h1>
 <form ng-submit="submitPost()">
-  <input type="text" placeholder="Enter Post Title" ng-model="newPost.title">
-  <textarea placeholder="Enter Content" ng-model="newPost.content"></textarea>
+  <div>
+    <input type="text" placeholder="Enter Post Title" ng-model="newPost.title">
+  </div>
+  <div>
+    <textarea placeholder="Enter Content" ng-model="newPost.content" rows="6" cols="40"></textarea>
+  </div>
   <input type="submit">
 </form>
 <ul>
