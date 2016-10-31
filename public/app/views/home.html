@@ -1,0 +1,13 @@
+<h1>Home</h1>
+<form ng-submit="submitPost()">
+  <input type="text" placeholder="Enter Post Title" ng-model="newPost.title">
+  <textarea placeholder="Enter Content" ng-model="newPost.content"></textarea>
+  <input type="submit">
+</form>
+<ul>
+  <li ng-repeat="post in posts">
+    <button ng-click="deletePost(post)">delete</button>
+    {{post.title}}
+    {{post._id}}
+  </li>
+</ul>
